@@ -14,5 +14,10 @@ namespace PM2E16502
         {
             InitializeComponent();
         }
+
+        private void Foto_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

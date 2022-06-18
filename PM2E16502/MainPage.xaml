@@ -3,8 +3,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E16502.MainPage">
 
-    <StackLayout>
-      
-    </StackLayout>
 
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Label Text="ID" FontSize="16" Padding="10,5,30,10"/>-->
+
+            <FlexLayout Direction="Row"
+                AlignItems="Center"
+                        Padding="20"
+                JustifyContent="SpaceEvenly">
+
+                <Image Source="uth.png"  WidthRequest="100"/>
+                <Label Text="SITE VISITOR APP" FontSize="16" Padding="10,5,30,10"/>
+            </FlexLayout>
+
+            <FlexLayout Direction="Column"
+                AlignItems="Center"
+                JustifyContent="SpaceEvenly">
+
+                <ImageButton x:Name="Foto" BackgroundColor="Bisque"
+                   WidthRequest="150" HeightRequest="150" Clicked="Foto_Clicked"/>
+            </FlexLayout>
+
+
+            
+
+            <Label Text="Latitud" FontSize="16" Padding="10,5,30,10"/>
+
+            <Entry 
+                   Keyboard="Text" 
+                   x:Name="txtLatitud" 
+                   BackgroundColor="White"
+                   Text="{Binding latitud}"/>
+
+            <Label Text="Longitud" FontSize="16" Padding="10,5,30,10"/>
+
+            <Entry 
+                   Keyboard="Text" 
+                   x:Name="txtLongitud" 
+                   BackgroundColor="White"
+                   Text="{Binding longitud}"/>
+            
+            <Label Text="Descripcion" FontSize="16" Padding="10,5,30,10"/>
+            <Editor Text=""  HeightRequest="100" />
+        
+            
+            
+            
+            <Frame 
+               Padding="5">
+                <StackLayout Orientation="Horizontal"
+                         Spacing="50"
+                             Padding="20">
+                    <Button Text="Agregar" x:Name="btnSave" Margin="30,0,10,0" />
+                    <Button Text="Lista Sitios" x:Name="btnLista" Margin="10,0,10,0" />
+                </StackLayout>
+                
+            </Frame>
+
+            <Frame 
+               Padding="0">
+                <StackLayout Orientation="Vertical"
+                         Spacing="0"
+                             Padding="0">
+                    <Button Text="Salir App" x:Name="btnExit" Margin="70,0,70,0" />
+                </StackLayout>
+
+            </Frame>
+
+
+
+            
+
+
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

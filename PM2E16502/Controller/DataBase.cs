@@ -15,7 +15,7 @@ namespace PM022PP0122.Controller
         public DataBase(string dbpath) {
             dbase = new SQLiteAsyncConnection(dbpath);
             //creacion de las tablas de la base de datos
-            dbase.CreateTableAsync<Sitios>(); //creando tabla de empleados
+            dbase.CreateTableAsync<Sitios>(); //creando tabla de sitios
 
         }
 
