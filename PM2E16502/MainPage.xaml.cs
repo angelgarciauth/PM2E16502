@@ -48,7 +48,7 @@ namespace PM2E16502
 
             });
 
- 
+
 
             if (FileFoto != null)
             {
@@ -62,14 +62,35 @@ namespace PM2E16502
         {
             base.OnAppearing();
 
-            var localizacion = await Geolocation.GetLocationAsync();
+            currentLocation();
 
-            if (localizacion != null)
+        }
+
+        private async void currentLocation()
+        {
+
+            var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+
+            if (status == PermissionStatus.Granted)
             {
-
-                txtLatitud.Text = Convert.ToString(localizacion.Latitude);
-                txtLongitud.Text = Convert.ToString(localizacion.Longitude);
+                var localizacion = await Geolocation.GetLocationAsync();
+                if (localizacion != null)
+                {
+                    txtLatitud.Text = Convert.ToString(localizacion.Latitude);
+                    txtLongitud.Text = Convert.ToString(localizacion.Longitude);
+                } 
+                else
+                {
+                    await DisplayAlert("Advertencia", "No pudimos obtener su ubicacion", "Ok");
+                    txtLatitud.Text = Convert.ToString(14.079700596864964);
+                    txtLongitud.Text = Convert.ToString(-87.18946052765942);
+                }
                 
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Active el GPS para el correcto funcionamiento de la aplicación.", "Ok");
+                await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             }
         }
 
