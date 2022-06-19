@@ -66,11 +66,17 @@ namespace PM2E16502.Views
                 await DisplayAlert("Advertencia", "Debes seleccionar una ubicacion con foto", "Ok");
             } else
             {
-                await Share.RequestAsync(new ShareFileRequest
+                try {
+                    await Share.RequestAsync(new ShareFileRequest
+                    {
+                        Title = sitios.descripcion,
+                        File = new ShareFile(sitios.fotoPath)
+                    });
+                } catch (Exception ex)
                 {
-                    Title = sitios.descripcion,
-                    File = new ShareFile(sitios.fotoPath)
-                }); 
+                    await DisplayAlert("Advertencia", "Se produjo un error al compartir la fotografia", "Ok");
+                }
+                
             }
         }
     }
