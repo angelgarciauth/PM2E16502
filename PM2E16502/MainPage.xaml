@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PM2E16502.MainPage">
+             x:Class="PM2E16502.MainPage"
+             NavigationPage.HasNavigationBar="False">
 
 
     <ContentPage.Content>
@@ -21,7 +22,7 @@
                 AlignItems="Center"
                 JustifyContent="SpaceEvenly">
 
-                <ImageButton x:Name="Foto" BackgroundColor="Bisque"
+                <ImageButton Source="usuario.png" x:Name="Foto" BackgroundColor="Bisque"
                    WidthRequest="150" HeightRequest="150" Clicked="Foto_Clicked"/>
             </FlexLayout>
 
@@ -34,6 +35,7 @@
                    Keyboard="Text" 
                    x:Name="txtLatitud" 
                    BackgroundColor="White"
+                   IsReadOnly="true"
                    Text="{Binding latitud}"/>
 
             <Label Text="Longitud" FontSize="16" Padding="10,5,30,10"/>
@@ -42,27 +44,33 @@
                    Keyboard="Text" 
                    x:Name="txtLongitud" 
                    BackgroundColor="White"
+                   IsReadOnly="true"
                    Text="{Binding longitud}"/>
             
             <Label Text="Descripcion" FontSize="16" Padding="10,5,30,10"/>
-            <Editor Text=""  HeightRequest="100" />
+            <Editor Keyboard="Text"
+                    HeightRequest="100" 
+                    x:Name="txtDescripcion"
+                    />
         
             
             
             
             <Frame 
-               Padding="5">
+               Padding="5"
+                HasShadow="false">
                 <StackLayout Orientation="Horizontal"
                          Spacing="50"
                              Padding="20">
-                    <Button Text="Agregar" x:Name="btnSave" Margin="30,0,10,0" />
-                    <Button Text="Lista Sitios" x:Name="btnLista" Margin="10,0,10,0" />
+                    <Button Text="Agregar" x:Name="btnSave" Margin="30,0,10,0"  Clicked="btnSave_Clicked"/>
+                    <Button Text="Lista Sitios" x:Name="btnLista" Margin="10,0,10,0" Clicked="btnLista_Clicked"/>
                 </StackLayout>
                 
             </Frame>
 
             <Frame 
-               Padding="0">
+               Padding="0"
+                HasShadow="false">
                 <StackLayout Orientation="Vertical"
                          Spacing="0"
                              Padding="0">

@@ -22482,7 +22482,10 @@ namespace PM2E16502.Droid
 			public const int tooltip_frame_light = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int uth = 2131165349;
+			public const int usuario = 2131165349;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int uth = 2131165350;
 			
 			static Drawable()
 			{

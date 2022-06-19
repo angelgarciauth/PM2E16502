@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Convertidor="clr-namespace:PM2E16502.Convertidor"
+             x:Class="PM2E16502.Views.ListSites">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByArrayToImage x:Key="byteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <CollectionView x:Name="ListSite"
+                            SelectionMode="Single"
+                            SelectionChanged="ListSite_SelectionChanged_1">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image WidthRequest="50" Source="{Binding foto, Converter={StaticResource byteToImage}}"/>
+
+                            <Label VerticalOptions="Center" Text="{Binding descripcion}"/>
+
+                           
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            <Frame 
+               Padding="5"
+                HasShadow="false">
+                <StackLayout Orientation="Horizontal"
+                         Spacing="50"
+                             Padding="20">
+                    <Button Text="Eliminar Casa" x:Name="btnEliminar" Margin="30,0,10,0"  />
+                    <Button Text="Ver Mapa" x:Name="btnMapa" Margin="10,0,10,0"/>
+                </StackLayout>
+
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

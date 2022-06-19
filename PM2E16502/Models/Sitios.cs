@@ -12,9 +12,7 @@ namespace PM2E16502.Models
         public Byte[] foto { get; set; }
         public Double latitud { get; set; }
         public Double longitud { get; set; }
-        public String descripcion { get; set; }
+        public string descripcion { get; set; }
 
-
-        
     }
 }
