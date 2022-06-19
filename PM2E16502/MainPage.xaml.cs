@@ -93,6 +93,7 @@ namespace PM2E16502
             {
                 id = 0,
                 foto = ConvertImageToByteArray(),
+                fotoPath = FileFoto.Path,
                 latitud = Convert.ToDouble(txtLatitud.Text),
                 longitud = Convert.ToDouble(txtLongitud.Text),
                 descripcion = txtDescripcion.Text

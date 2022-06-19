@@ -9,6 +9,8 @@
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS"
 				android:resource="@xml/file_paths"></meta-data>
 		</provider>
+
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB5OCYlrtUdnx32QJgDn7vwwl8T32p6_i8" />
 	</application>
 	
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
