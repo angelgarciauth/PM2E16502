@@ -41,9 +41,15 @@ namespace PM2E16502.Views
             }
             else
             {
-                var result = await App.DBase.DeleteSite(currentData);
-                ListSite.ItemsSource = await App.DBase.getListSite();
-                await DisplayAlert("Advertencia", "Seleccione un sitio", "Ok");
+                bool answer = await DisplayAlert("¿Confirmacion?", "¿Esta seguro de eliminar el sitio?", "Si", "No");
+
+                if (answer)
+                {
+                    await App.DBase.DeleteSite(currentData);
+                    ListSite.ItemsSource = await App.DBase.getListSite();
+                    await DisplayAlert("Confirmacion", "Sitio eliminado correctamente", "Ok");
+                }
+                
             }
             
         }
@@ -55,8 +61,14 @@ namespace PM2E16502.Views
                 await DisplayAlert("Advertencia", "Seleccione una ubicacion", "Ok");
             } else
             {
-                MapPage mapPage = new MapPage(currentData);
-                await Navigation.PushAsync(mapPage);
+                bool answer = await DisplayAlert("¿Confirmacion?", "¿Esta seguro de ir a la ubicacion?", "Si", "No");
+
+                if (answer)
+                {
+                    MapPage mapPage = new MapPage(currentData);
+                    await Navigation.PushAsync(mapPage);
+                }
+
             }
         }
     }
