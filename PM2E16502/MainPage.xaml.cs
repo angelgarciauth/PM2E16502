@@ -43,30 +43,38 @@ namespace PM2E16502
 
         private async void Foto_Clicked(object sender, EventArgs e)
         {
-            FileFoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            try
             {
-                Directory = "MisFotos",
-                Name = "test.jpg",
-                SaveToAlbum = true
-
-
-            });
-
-
-
-            if (FileFoto != null)
-            {
-                Foto.Source = ImageSource.FromStream(() =>
+                FileFoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
-                    return FileFoto.GetStream();
+                    Directory = "MisFotos",
+                    Name = "test.jpg",
+                    SaveToAlbum = true
+
+
                 });
+
+
+
+                if (FileFoto != null)
+                {
+                    Foto.Source = ImageSource.FromStream(() =>
+                    {
+                        return FileFoto.GetStream();
+                    });
+                }
             }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Advertencia", "Se necesitan los permisos de la camara", "Ok");
+            }
+           
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            //currentCamera();
+            
 
             currentLocation();
 
@@ -74,18 +82,6 @@ namespace PM2E16502
 
         }
 
-        private async void currentCamera()
-        {
-            var result = await Permissions.CheckStatusAsync<Permissions.Camera>();
-
-            if (result != PermissionStatus.Granted)
-
-            {
-                await DisplayAlert("Advertencia", "Se necesitan los permisos de la camara", "Ok");
-                await Permissions.RequestAsync<Permissions.Camera>();
-            }
-           
-        }
 
         private async void currentLocation()
         {
@@ -149,6 +145,7 @@ namespace PM2E16502
             if (result > 0)
             {
                 await DisplayAlert("Alert", "Guardado Correctamente", "OK");
+                txtDescripcion.Text = "";
             }
             else
             {
