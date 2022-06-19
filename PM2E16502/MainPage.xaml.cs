@@ -66,8 +66,25 @@ namespace PM2E16502
         {
             base.OnAppearing();
 
+            //currentCamera();
+
             currentLocation();
 
+            
+
+        }
+
+        private async void currentCamera()
+        {
+            var result = await Permissions.CheckStatusAsync<Permissions.Camera>();
+
+            if (result != PermissionStatus.Granted)
+
+            {
+                await DisplayAlert("Advertencia", "Se necesitan los permisos de la camara", "Ok");
+                await Permissions.RequestAsync<Permissions.Camera>();
+            }
+           
         }
 
         private async void currentLocation()
