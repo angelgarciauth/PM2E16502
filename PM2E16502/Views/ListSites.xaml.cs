@@ -56,8 +56,10 @@ namespace PM2E16502.Views
                 if (answer)
                 {
                     await App.DBase.DeleteSite(currentData);
+                    
                     ListSite.ItemsSource = await App.DBase.getListSite();
                     await DisplayAlert("Confirmacion", "Sitio eliminado correctamente", "Ok");
+                    currentData = null;
                 }
                 
             }
