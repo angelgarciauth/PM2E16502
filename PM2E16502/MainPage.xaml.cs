@@ -81,7 +81,14 @@ namespace PM2E16502
                 await DisplayAlert("Error", "No se ha tomado una fotografia", "OK");
                 return;
             }
- 
+
+
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                await DisplayAlert("Error", "No se ha ingresado la descripcion", "OK");
+                return;
+            }
+
             var sitio = new Sitios
             {
                 id = 0,

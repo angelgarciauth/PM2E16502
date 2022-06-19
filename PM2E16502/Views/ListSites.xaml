@@ -44,8 +44,8 @@
                 <StackLayout Orientation="Horizontal"
                          Spacing="50"
                              Padding="20">
-                    <Button Text="Eliminar Casa" x:Name="btnEliminar" Margin="30,0,10,0"  />
-                    <Button Text="Ver Mapa" x:Name="btnMapa" Margin="10,0,10,0"/>
+                    <Button Text="Eliminar Casa" x:Name="btnEliminar" Margin="30,0,10,0" Clicked="btnEliminar_Clicked"/>
+                    <Button Text="Ver Mapa" x:Name="btnMapa" Margin="10,0,10,0" Clicked="btnMapa_Clicked"/>
                 </StackLayout>
 
             </Frame>
