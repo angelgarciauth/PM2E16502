@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E16502.Views.MapPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+    <ContentPage.Content>
+        <Grid RowDefinitions="620, *">
+            <maps:Map x:Name="mapa"/>
+            <Button Grid.Row="1"
+                    Text="Compartir Imagen"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    CornerRadius="10"
+                    x:Name="btnShareImage"
+                    Clicked="btnShareImage_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

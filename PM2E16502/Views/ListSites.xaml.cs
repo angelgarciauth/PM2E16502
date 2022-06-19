@@ -37,9 +37,16 @@ namespace PM2E16502.Views
             //currentData.id
         }
 
-        private void btnMapa_Clicked(object sender, EventArgs e)
+        private async void btnMapa_Clicked(object sender, EventArgs e)
         {
-
+            if (currentData == null)
+            {
+                await DisplayAlert("Advertencia", "Seleccione una ubicacion", "Ok");
+            } else
+            {
+                MapPage mapPage = new MapPage(currentData);
+                await Navigation.PushAsync(mapPage);
+            }
         }
     }
 }
