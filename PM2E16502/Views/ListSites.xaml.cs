@@ -21,15 +21,14 @@ namespace PM2E16502.Views
         }
 
 
-        private void ListSite_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        protected async override void OnAppearing()
         {
             currentData = (e.CurrentSelection.FirstOrDefault() as Sitios);
         }
 
-        protected async override void OnAppearing()
+        private void ListSite_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            base.OnAppearing();
-            ListSite.ItemsSource = await App.DBase.getListSite();
+            
         }
 
         private void btnEliminar_Clicked(object sender, EventArgs e)
