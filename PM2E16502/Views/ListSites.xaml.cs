@@ -23,9 +23,19 @@ namespace PM2E16502.Views
 
         protected async override void OnAppearing()
         {
-            base.OnAppearing();
+           
 
-            ListSite.ItemsSource = await App.DBase.getListSite();
+            if (await App.DBase.getListSite()!=null)
+            {
+                base.OnAppearing();
+                ListSite.ItemsSource = await App.DBase.getListSite();
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "No hay sitios agregados", "Ok");
+            }
+                
+           
         }
 
         private void ListSite_SelectionChanged(object sender, SelectionChangedEventArgs e)

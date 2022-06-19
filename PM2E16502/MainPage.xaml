@@ -74,7 +74,7 @@
                 <StackLayout Orientation="Vertical"
                          Spacing="0"
                              Padding="0">
-                    <Button Text="Salir App" x:Name="btnExit" Margin="70,0,70,0" />
+                    <Button Text="Salir App" x:Name="btnExit" Margin="70,0,70,0" Clicked="btnExit_Clicked"/>
                 </StackLayout>
 
             </Frame>

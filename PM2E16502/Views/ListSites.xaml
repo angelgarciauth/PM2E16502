@@ -23,6 +23,7 @@
 
                 </CollectionView.ItemsLayout>
 
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">

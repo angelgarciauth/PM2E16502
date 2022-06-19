@@ -69,9 +69,13 @@ namespace PM2E16502
 
                 txtLatitud.Text = Convert.ToString(localizacion.Latitude);
                 txtLongitud.Text = Convert.ToString(localizacion.Longitude);
-                
+
             }
+           
+           
         }
+
+
 
         private async void btnSave_Clicked(object sender, EventArgs e)
         {
@@ -115,6 +119,12 @@ namespace PM2E16502
         private async void btnLista_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ListSites());
+        }
+
+        private void btnExit_Clicked(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+
         }
     }
 }
