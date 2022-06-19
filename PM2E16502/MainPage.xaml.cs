@@ -19,6 +19,10 @@ namespace PM2E16502
         public MainPage()
         {
             InitializeComponent();
+            if (App.DBase ==  null)
+            {
+
+            }
         }
 
         private Byte[] ConvertImageToByteArray()
