@@ -42,11 +42,9 @@ namespace PM2E16502.Views
             else
             {
                 var result = await App.DBase.DeleteSite(currentData);
+                ListSite.ItemsSource = await App.DBase.getListSite();
                 await DisplayAlert("Advertencia", "Seleccione un sitio", "Ok");
-
-                
             }
-            
             
         }
 
