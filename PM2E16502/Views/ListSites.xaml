@@ -15,7 +15,7 @@
 
             <CollectionView x:Name="ListSite"
                             SelectionMode="Single"
-                            SelectionChanged="ListSite_SelectionChanged_1">
+                            SelectionChanged="ListSite_SelectionChanged">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
