@@ -23,7 +23,7 @@ namespace PM2E16502.Views
 
         protected async override void OnAppearing()
         {
-            currentData = (e.CurrentSelection.FirstOrDefault() as Sitios);
+            //currentData = (e.CurrentSelection.FirstOrDefault() as Sitios);
         }
 
         private void ListSite_SelectionChanged(object sender, SelectionChangedEventArgs e)
